@@ -1070,3 +1070,245 @@ _shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needF
  2015-11-07 01:47:19,814 [P2720/D2/T12] WARN  Umbraco.Web.UmbracoModule - Umbraco has no content
  2015-11-07 01:47:21,211 [P2720/D2/T8] INFO  umbraco.content - Save Xml to file...
  2015-11-07 01:47:21,215 [P2720/D2/T17] INFO  umbraco.content - Saved Xml to file.
+ 2015-11-07 01:48:42,028 [P2720/D2/T17] INFO  Umbraco.Core.UmbracoApplicationBase - Application shutdown. Details: BrowsersDirChangeOrDirectoryRename
+
+_shutDownMessage=Change Notification for critical directories.
+App_Browsers dir change or directory rename
+HostingEnvironment initiated shutdown
+Change Notification for critical directories.
+App_Browsers dir change or directory rename
+Change Notification for critical directories.
+File Change Notification Error in App_Browsers
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+Change in GLOBAL.ASAX
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+Change Notification for critical directories.
+File Change Notification Error in App_LocalResources
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+CONFIG change
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Directory rename change notification for 'D:\UpgradeIt\UpgradeIt'.
+UpgradeIt dir change or directory rename
+CONFIG change
+Change in GLOBAL.ASAX
+Change in GLOBAL.ASAX
+CONFIG change
+CONFIG change
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+Change Notification for critical directories.
+bin dir change or directory rename
+HostingEnvironment caused shutdown
+
+_shutDownStack=   at System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   at System.Environment.get_StackTrace()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownInternal()
+   at System.Web.Hosting.HostingEnvironment.InitiateShutdownWithoutDemand()
+   at System.Web.HttpRuntime.ShutdownAppDomain(String stackTrace)
+   at System.Web.HttpRuntime.OnCriticalDirectoryChange(Object sender, FileChangeEvent e)
+   at System.Web.FileChangesMonitor.OnCriticaldirChange(Object sender, FileChangeEvent e)
+   at System.Web.DirectoryMonitor.FireNotifications()
+   at System.Web.Util.WorkItem.CallCallbackWithAssert(WorkItemCallback callback)
+   at System.Web.Util.WorkItem.OnQueueUserWorkItemCompletion(Object state)
+   at System.Threading.QueueUserWorkItemCallback.WaitCallback_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.QueueUserWorkItemCallback.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+ 2015-11-07 01:50:27,814 [P12008/D2/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco 7.3.1 application starting on Y50
+ 2015-11-07 01:50:27,836 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Determining hash of code files on disk
+ 2015-11-07 01:50:27,842 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Hash determined (took 5ms)
+ 2015-11-07 01:50:27,924 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+ 2015-11-07 01:50:28,110 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 0 (took 185ms)
+ 2015-11-07 01:50:28,119 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+ 2015-11-07 01:50:28,122 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 2ms)
+ 2015-11-07 01:50:28,122 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+ 2015-11-07 01:50:28,125 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 0 (took 3ms)
+ 2015-11-07 01:50:28,135 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+ 2015-11-07 01:50:28,137 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 0 (took 2ms)
+ 2015-11-07 01:50:28,138 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+ 2015-11-07 01:50:28,140 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 0 (took 2ms)
+ 2015-11-07 01:50:28,164 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+ 2015-11-07 01:50:28,167 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 0 (took 3ms)
+ 2015-11-07 01:50:28,168 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+ 2015-11-07 01:50:28,171 [P12008/D2/T1] INFO  Umbraco.Core.PluginManager - Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 0 (took 3ms)
+ 2015-11-07 01:50:28,933 [P12008/D2/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2015-11-07 01:50:29,234 [P12008/D2/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2015-11-07 01:50:29,236 [P12008/D2/T1] INFO  Umbraco.Core.DatabaseContext - CanConnect = True
+ 2015-11-07 01:50:29,412 [P12008/D2/T1] WARN  Umbraco.Core.Sync.DatabaseServerMessenger - No last synced Id found, this generally means this is a new server/install. The server will rebuild its caches and indexes and then adjust it's last synced id to the latest found in the database and will start maintaining cache updates based on that id
+ 2015-11-07 01:50:29,593 [P12008/D2/T1] INFO  umbraco.content - Load Xml from file...
+ 2015-11-07 01:50:29,593 [P12008/D2/T1] INFO  umbraco.content - Loaded Xml from file.
+ 2015-11-07 01:50:29,596 [P12008/D2/T1] INFO  umbraco.content - Loading content from database...
+ 2015-11-07 01:50:32,109 [P12008/D2/T1] INFO  Umbraco.Web.Cache.CacheRefresherEventHandler - Initializing Umbraco internal event handlers for cache refreshing
+ 2015-11-07 01:50:32,118 [P12008/D2/T1] INFO  Umbraco.Web.Search.ExamineEvents - Initializing Examine and binding to business logic events
+ 2015-11-07 01:50:32,118 [P12008/D2/T1] INFO  Umbraco.Web.Search.ExamineEvents - Adding examine event handlers for index providers: 3
+ 2015-11-07 01:50:32,124 [P12008/D2/T1] INFO  Umbraco.Core.CoreBootManager - Umbraco application startup complete (took 4366ms)
+ 2015-11-07 01:50:32,487 [P12008/D2/T11] INFO  Umbraco.Core.Sync.ApplicationUrlHelper - ApplicationUrl: http://localhost:49846/umbraco (UmbracoModule request)
+ 2015-11-07 01:50:32,572 [P12008/D2/T11] WARN  Umbraco.Web.UmbracoModule - Umbraco has no content
+ 2015-11-07 01:50:34,058 [P12008/D2/T9] INFO  umbraco.content - Save Xml to file...
+ 2015-11-07 01:50:34,061 [P12008/D2/T11] INFO  umbraco.content - Saved Xml to file.

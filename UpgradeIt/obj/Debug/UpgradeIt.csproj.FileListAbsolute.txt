@@ -235,6 +235,5 @@ D:\UpgradeIt\UpgradeIt\bin\UmbracoExamine.xml
 D:\UpgradeIt\UpgradeIt\bin\WebMatrix.Data.xml
 D:\UpgradeIt\UpgradeIt\bin\WebMatrix.WebData.xml
 D:\UpgradeIt\UpgradeIt\obj\Debug\UpgradeIt.csproj.App.config
-D:\UpgradeIt\UpgradeIt\obj\Debug\UpgradeIt.csprojResolveAssemblyReference.cache
 D:\UpgradeIt\UpgradeIt\obj\Debug\UpgradeIt.dll
 D:\UpgradeIt\UpgradeIt\obj\Debug\UpgradeIt.pdb
