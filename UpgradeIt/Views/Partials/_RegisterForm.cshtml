@@ -1,0 +1,28 @@
+﻿@model UpgradeIt.Model.RegisterViewModel
+
+@using (Html.BeginUmbracoForm<UpgradeIt.Controllers.MembershipController>("Register"))
+{
+    <fieldset>
+        <legend>Register</legend>
+
+        @Html.ValidationSummary("Model", true)
+
+        @Html.LabelFor(m => Model.Email)
+        @Html.TextBoxFor(m => Model.Email)
+        @Html.ValidationMessageFor(m => Model.Email)
+        <br />
+
+        @Html.LabelFor(m => Model.Password)
+        @Html.PasswordFor(m => Model.Password)
+        @Html.ValidationMessageFor(m => Model.Password)
+        <br />
+
+        @Html.LabelFor(m => Model.ConfirmPassword)
+        @Html.PasswordFor(m => Model.ConfirmPassword)
+        @Html.ValidationMessageFor(m => Model.ConfirmPassword)
+        <br />
+
+        <button>Register</button>
+    </fieldset>
+}
+
