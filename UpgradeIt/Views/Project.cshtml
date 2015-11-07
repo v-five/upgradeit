@@ -1,4 +1,28 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Page.cshtml";
+    var image = Model.Content.GetPropertyValue("image");
+    var comments = Model.Content.Descendants("Comment");
+    var likes = Model.Content.Descendants("Like");
+    var memberService = ApplicationContext.Current.Services.MemberService;
 }
+
+<p>@Model.Content.GetPropertyValue("title")</p>
+<p>@Model.Content.GetPropertyValue("description")</p>
+<img src="@image" />
+
+<div>
+    <p>@likes.Count() Likes</p>
+    <p>Comments:</p>
+    <ul>
+        @foreach (var comment in comments)
+        {
+            var author = memberService.GetById(comment.GetPropertyValue<int>("author"));
+            <li>
+                <p>@comment.GetPropertyValue("title")</p>
+                <p>@comment.GetPropertyValue("text")</p>
+                <p>@author.Name</p>
+            </li>
+        }
+    </ul>
+</div>

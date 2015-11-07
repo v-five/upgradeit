@@ -4,3 +4,13 @@
 }
 
 <p>@Model.Content.GetPropertyValue("motto")</p>
+
+<ul>
+    @{
+        var projects = Model.Content.Children().Where(p => p.GetPropertyValue<bool>("isApproved")).OrderBy(p => p.Descendants("like").Count()).Take(5);
+        foreach (var project in projects)
+        {
+            <li><a href="@project.NiceUrl()">@project.Name</a></li>
+        }
+    }
+</ul>
