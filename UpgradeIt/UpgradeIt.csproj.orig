@@ -366,7 +366,9 @@
     <Content Include="Views\HomePage.cshtml" />
     <Content Include="Views\Page.cshtml" />
     <Content Include="Views\Project.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\ProjectEdit.cshtml" />
+=======
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\MacroPartials\LoginForm.cshtml" />
@@ -379,6 +381,7 @@
     <Content Include="Views\Partials\_RegisterForm.cshtml" />
     <Content Include="Views\ProjectSearchJson.cshtml" />
     <Content Include="Views\Partials\_ProjectSearchJson.cshtml" />
+>>>>>>> develop
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -421,8 +424,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Folder Include="Views\MacroPartials\" />
+=======
     <Folder Include="Views\Membership\" />
+    <Folder Include="Views\Project\" />
     <Folder Include="Views\Search\" />
+>>>>>>> develop
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

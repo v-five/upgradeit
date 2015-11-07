@@ -2,6 +2,10 @@
 @{
     Layout = "Page.cshtml";
 }
+@{
+    var loginStatus = TempData["LoginStatus"] as string;
+    var registrationSuccess = TempData["RegistrationSuccess"] as bool?;
+    var registrationErrorMessage = TempData["RegistrationErrorMessage"] as string;
 
 <p>@Model.Content.GetPropertyValue("motto")</p>
 
@@ -14,3 +18,27 @@
         }
     }
 </ul>
+    if (String.IsNullOrEmpty(registrationErrorMessage))
+    {
+        registrationErrorMessage = "Unknown error!";
+    }
+}
+
+<p>@Model.Content.GetPropertyValue("motto")</p>
+
+@Umbraco.RenderMacro("LoginForm")
+
+@Umbraco.RenderMacro("RegisterForm")
+
+@Html.ActionLink("Logout", "Logout", "Membership", new { currentPageUrl = Request.Url.AbsoluteUri }, null)
+
+<p>@loginStatus</p>
+
+@if(registrationSuccess == true)
+{
+    <p>Registration successfull!</p>
+}
+else if(registrationSuccess == false)
+{
+    <p>Registration error: @registrationErrorMessage</p>
+}

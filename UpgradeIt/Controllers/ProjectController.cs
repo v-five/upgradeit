@@ -12,23 +12,14 @@ namespace UpgradeIt.Controllers
 {
     public class ProjectEditController : RenderMvcController
     {
-        [HttpGet]
-        public override ActionResult Index(RenderModel model)
-        {
-            if (umbraco.BusinessLogic.User.GetCurrent() != null)
-            {
-                return base.View(model);
-            }
-
-            return this.Redirect(umbraco.library.NiceUrl(id));
-        }
-
-        [HttpPost]
         public override ActionResult Index(RenderModel model)
         {
             var id = Convert.ToInt32(Request.Params["id"]);
             if (umbraco.BusinessLogic.User.GetCurrent() != null)
             {
+                if(Request.HttpMethod.Equals("GET"))
+                    return base.View(model);
+
                 var project = new Document(id);
 
                 project.getProperty("title").Value = Request["title"];
