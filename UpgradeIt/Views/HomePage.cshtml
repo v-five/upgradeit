@@ -30,6 +30,8 @@
 
 @Umbraco.RenderMacro("RegisterForm")
 
+@Html.ActionLink("Logout", "Logout", "Membership", new { currentPageUrl = Request.Url.AbsoluteUri }, null)
+
 <p>@loginStatus</p>
 
 @if(registrationSuccess == true)

@@ -34,11 +34,11 @@ namespace UpgradeIt.Controllers
         }
 
         [HttpGet]
-        public ActionResult Logout()
+        public ActionResult Logout(string currentPageUrl)
         {
             Session.Clear();
             FormsAuthentication.SignOut();
-            return RedirectToCurrentUmbracoPage();
+            return Redirect(currentPageUrl);
         }
         
         [HttpPost]
