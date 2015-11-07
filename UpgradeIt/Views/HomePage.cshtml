@@ -1,6 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Page.cshtml";
+    var projects = Model.Content.Children().Where(p => p.GetPropertyValue<bool>("isApproved")).OrderBy(p => p.Descendants("like").Count()).Take(5);
 }
 
 @section subHeader{
@@ -10,11 +11,6 @@
     <button class="scrollto">Find out more</button>
 </div>
 }
-
-@{
-    var projects = Model.Content.Children().Where(p => p.GetPropertyValue<bool>("isApproved")).OrderBy(p => p.Descendants("like").Count()).Take(5);
-}
-
 
 <div class="content">
     <div class="container">
@@ -36,7 +32,7 @@
                         <div class="col-md-6 col-sm-7">
                             <div class="center-element">
                                 <div class="center-element-inner">
-                                    <h4 class="uppercase">@project.GetPropertyValue("title")</h4>
+                                    <h4 class="uppercase"><a href="@project.NiceUrl()">@project.GetPropertyValue("title")</a></h4>
                                     <p class="content-about-slider">@project.GetPropertyValue("description")</p>
                                 </div>
                             </div>

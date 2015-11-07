@@ -31,12 +31,12 @@ namespace UpgradeIt.Controllers
                 if (!string.IsNullOrWhiteSpace(Request["description"]))
                     project.getProperty("description").Value = Request["description"];
                 if (!string.IsNullOrWhiteSpace(Request["projectType"]))
-                    project.getProperty("projectType").Value = Request["projectType"];
+                    project.getProperty("projectType").Value = Convert.ToInt32(Request["projectType"]);
                 if (!string.IsNullOrWhiteSpace(Request["area"]))
                     project.getProperty("area").Value = Convert.ToInt32(Request["area"]);
                 project.getProperty("allowComments").Value = !string.IsNullOrWhiteSpace(Request["allowComments"]) && Request["allowComments"].ToLower().Equals("on");
 
-                if (Request.Files.Count > 0)
+                if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
                 {
                     var uploadedFile = Request.Files[0];
                     var fileName = Path.GetFileName(uploadedFile.FileName);

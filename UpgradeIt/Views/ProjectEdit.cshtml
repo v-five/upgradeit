@@ -20,7 +20,7 @@
     <span>Allow Comments:</span>
     <input type="checkbox" name="allowComments" @(Convert.ToBoolean(projectProperties.First(p => p.Alias.Equals("allowComments")).Value) ? "checked" : "") />
     <span>Project Type</span>
-    <select name="type">
+    <select name="projectType">
         @foreach (var type in types)
         {
             <option value="@type.Id" @(projectProperties.First(p => p.Alias.Equals("projectType")).Value.Equals(type.Id.ToString()) ? "selected" : "")> @type.Value</option>
