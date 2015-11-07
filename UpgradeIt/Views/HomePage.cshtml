@@ -1,0 +1,6 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Page.cshtml";
+}
+
+<p>@Model.Content.GetPropertyValue("motto")</p>

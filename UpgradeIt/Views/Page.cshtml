@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>@Model.Content.GetPropertyValue("title")</title>
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>
