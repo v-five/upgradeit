@@ -10,7 +10,7 @@ namespace UpgradeIt.Model
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email address")]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         [Required]

@@ -1,36 +1,32 @@
 ﻿@model Umbraco.Web.Models.LoginModel
 
-@{
-    var currentUser = Membership.GetUser();
-}
 
-@if(currentUser != null)
+@using (Html.BeginUmbracoForm<UpgradeIt.Controllers.MembershipController>("Login"))
 {
-    <p>Already logged in!</p>
+    @Html.ValidationSummary("Model", true)
+    <h1>Welcome Back!</h1>
+
+    <div class="field-wrap">
+        <label>
+            @Html.LabelFor(m => Model.Username)<span class="req">*</span>
+        </label>
+        @Html.TextBoxFor(m => Model.Username)
+        @Html.ValidationMessageFor(m => Model.Username)
+    </div>
+
+    <div class="field-wrap">
+        <label>
+            @Html.LabelFor(m => Model.Password)<span class="req">*</span>
+        </label>
+        @Html.PasswordFor(m => Model.Password)
+        @Html.ValidationMessageFor(m => Model.Password)
+    </div>
+
+    <p class="forgot"><a href="#">Forgot Password?</a></p>
+
+    <button class="button button-block">Log In</button>
 }
-else
-{
-    using (Html.BeginUmbracoForm<UpgradeIt.Controllers.MembershipController>("Login"))
-    {
-        <fieldset>
-            <legend>Login</legend>
 
-            @Html.ValidationSummary("Model", true)
-
-            @Html.LabelFor(m => Model.Username)
-            @Html.TextBoxFor(m => Model.Username)
-            @Html.ValidationMessageFor(m=>Model.Username)
-            <br />
-
-            @Html.LabelFor(m => Model.Password)
-            @Html.PasswordFor(m => Model.Password)
-            @Html.ValidationMessageFor(m => Model.Password)
-            <br />
-
-            <button>Login</button>
-        </fieldset>
-    }
-}
 
 
 

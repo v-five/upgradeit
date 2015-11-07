@@ -1,0 +1,59 @@
+//
+// Variables
+// --------------------------------------------------
+
+@white: #ffffff;
+@black: #000000;
+@dark-gray: #6e6e6e;
+@medium-grey: #575757;
+@light-gray: #f5f3f1;
+@background-grey: #f5f3f1;
+@orange: #F54F29;
+@cherry: #5c3331;
+@green: #405952;
+@gradient-light:#f6f6f6;
+@gradient-dark:#cbcbcb;
+@border-grey: #d5d5d5;
+@red:#f40009;
+
+  
+
+.no-margins {
+    margin:0;
+}
+/*@medium-font: 0.5em;
+@large-font: 1.6666666666em;
+@small-font: 0.4em;
+@smallest-font: 0.3em;*/
+
+.transition() {
+    -moz-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    -webkit-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+}
+.hover-orange(){
+    &:hover {
+        background:@white;
+        color:@orange;
+        border:1px solid @orange;
+        @media (max-width:1024px) {
+		    background:@white;
+            color:@orange;
+            border:1px solid @orange;
+        }
+    }
+}
+
+.arrow-hover() {
+    &:hover {
+        color:@black;
+
+        @media (max-width:1024px) {
+
+            color:@black;
+	    }
+
+    }
+}

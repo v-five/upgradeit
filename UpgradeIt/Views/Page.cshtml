@@ -3,11 +3,197 @@
     Layout = null;
 }
 
-<html>
+@{
+    var currentUser = Membership.GetUser();
+    var isLoggedIn = currentUser != null;
+
+    var dataTypeService = ApplicationContext.Services.DataTypeService;
+    var types = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Project Types").Id).PreValuesAsDictionary.Select(x => x.Value);
+}
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/icon/favicon.ico">
     <title>@Model.Content.GetPropertyValue("title")</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Awesome core CSS -->
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
 </head>
 <body>
+    <div class="header" style="background: url('@Model.Content.GetPropertyValue("backgroundImage")')">
+        <div class="container">
+            <div class="row top-header">
+                <div class="col-sm-3 logo">
+                    <a href="/">
+                        <img src="@Model.Content.GetPropertyValue("logo")" />
+                    </a>
+                </div>
+                <div class="col-sm-9 menu clearfix">
+                    <div class="mobile-menu uppercase"><span>menu</span></div>
+                    <div class="search pull-right">
+                        <a href=""><i class="fa fa-search"></i></a>
+                        <input class="search-input" type="search" placeholder="Type and hit Enter" />
+                    </div>
+                    <ul class="clearfix pull-right">
+                        <li class="uppercase"><a href="">About</a></li>
+                        <li class="uppercase"><a href="">Contact</a></li>
+                        @if (isLoggedIn)
+                        {
+                            <li class="uppercase"><i class="fa fa-user"></i>@currentUser.UserName</li>
+                            <li class="uppercase"><i class="fa fa-sign-out"></i>@Html.ActionLink("Logout", "Logout", "Membership", new { currentPageUrl = Request.Url.AbsoluteUri }, null)</li>
+                        }
+                        else
+                        { 
+                            <li class="uppercase"><a id="loginO"><i class="fa fa-sign-in"></i>Login</a></li>
+                            <li class="uppercase"><a id="registerO"><i class="fa fa-chevron-circle-up"></i>Register</a></li>
+                        }
+
+                    </ul>
+
+                </div>
+            </div>
+            @RenderSection("subHeader", false)
+        </div>
+    </div>
     @RenderBody()
+
+    @{
+        var loginStatus = TempData["LoginStatus"] as string;
+        var registrationSuccess = TempData["RegistrationSuccess"] as bool?;
+        var registrationErrorMessage = TempData["RegistrationErrorMessage"] as string;
+
+        if (String.IsNullOrEmpty(registrationErrorMessage))
+        {
+            registrationErrorMessage = "Unknown error!";
+        }
+    }
+
+    <div id="overlay">
+        <div class="form">
+            <ul class="tab-group">
+                <li class="tab signup active"><a href="#signup">Sign Up</a></li>
+                <li class="tab login"><a class="" href="#login">Log In</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="signup">
+                    @Umbraco.RenderMacro("RegisterForm")
+                </div>
+
+                <div id="login">
+                    @Umbraco.RenderMacro("LoginForm")
+                </div>
+
+            </div><!-- tab-content -->
+        </div> <!-- /form -->
+    </div>  <!-- /div overlay -->
+    <div class="background-black"></div>
+
+    <div class="footer">
+        <div class="categories">
+            <div class="categories-center">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <h3>Categories</h3>
+                            <p>Discover more about our Technologies applied to our works:</p>
+                        </div>
+                    </div>
+                    <div class="row text-center clearfix">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <ul class="category-list clearfix text-center">
+                                @foreach (var type in types)
+                                {
+                                    <li><a class="category-item">@type.Value</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="where text-center">
+            <h3>Where to find us</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <p><strong>Timisoara </strong>Complex Heaven</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 text-center menu">
+                        <div class="menu-inner clearfix">
+                            <ul class="clearfix">
+                                <li><a href="">CMS</a></li>
+                                <li><a href="">Mobile</a></li>
+                                <li><a href="">Software</a></li>
+                                <li><a href="">Hosting</a></li>
+                                <li><a href="">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 social">
+                        <div class="social-inner">
+                            <span>Connect with us</span>
+                            <ul>
+                                <li class="linkedin"><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                <li class="twitter"><a href=""><i class="fa fa-twitter"></i></a></li>
+                                <li class="facebook"><a href=""><i class="fa fa-facebook"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 copyright">
+                        <p>Copyright © 2015</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="~/Content/js/ie-emulation-modes-warning.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="~/Content/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+    <script src="~/Content/js/modernizr.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/owl.carousel.js"></script>
+    <script src="~/Content/js/jquery.mousewheel.js"></script>
+    <script src="~/Content/js/utils.js"></script>
+    <script src="~/Content/js/scripts.js"></script>
+
 </body>
 </html>
+
+
