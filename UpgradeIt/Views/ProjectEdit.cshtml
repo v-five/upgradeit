@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Page.cshtml";
+
+    var id = Convert.ToInt32(Request.Params["id"]);
+
+    var projectProperties = ApplicationContext.Services.ContentService.GetById(id).Properties;
+    var dataTypeService = ApplicationContext.Services.DataTypeService;
+    var types = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Project Types").Id).PreValuesAsDictionary.Select(x => x.Value);
+    var areas = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Areas").Id).PreValuesAsDictionary.Select(x => x.Value);
+}
+
+<form method="POST">
+    <span>Project Title:</span>
+    <input name="title" value="@projectProperties.First(p => p.Alias.Equals("title")).Value"/>
+    <span>Description:</span>
+    <textarea name="description">@projectProperties.First(p => p.Alias.Equals("description")).Value</textarea>
+    <span>Image:</span>
+    <img width="25px" src="@projectProperties.First(p => p.Alias.Equals("image")).Value"><input type="file" name="image" />
+    <span>Allow Comments:</span>
+    <input type="checkbox" name="allowComments" @(Convert.ToBoolean(projectProperties.First(p => p.Alias.Equals("allowComments")).Value) ? "checked" : "")/>
+    <span>Project Type</span>
+    <select name="type">
+        @foreach (var type in types)
+        {
+            <option value="@type.Id" @(projectProperties.First(p => p.Alias.Equals("projectType")).Value.Equals(type.Id.ToString()) ? "selected" : "")> @type.Value</option>
+        }
+    </select>
+
+    <span>Project Area</span>
+    <select name="area">
+        @foreach (var area in areas)
+        {
+            <option value="@area.Id" @(projectProperties.First(p=> p.Alias.Equals("area")).Value.Equals(area.Id.ToString()) ? "selected" : "")>@area.Value</option>
+        }
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
