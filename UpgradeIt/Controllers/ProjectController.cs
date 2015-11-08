@@ -56,7 +56,7 @@ namespace UpgradeIt.Controllers
         {
             if (!string.IsNullOrWhiteSpace(Request["title"]))
             {
-                var project = Document.MakeNew(Request["title"], DocumentType.GetByAlias("project"), user, new Node(-1).Id);
+                var project = Document.MakeNew(Request["title"], DocumentType.GetByAlias("project"), user, new Node(1133).Id);
                 SaveProject(project, user);
 
                 return project;
