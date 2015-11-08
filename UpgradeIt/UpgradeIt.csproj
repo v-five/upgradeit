@@ -344,11 +344,6 @@
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\scripts.js" />
     <Content Include="Content\js\utils.js" />
-    <Content Include="media\1001\sql-nosql.jpg" />
-    <Content Include="media\1001\sql-nosql_thumb.jpg" />
-    <Content Include="media\projects\nosql-expert.gif" />
-    <Content Include="media\projects\_D8E0320.jpg" />
-    <Content Include="media\projects\_D8E0320_big-thumb.jpg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -403,6 +398,10 @@
     <Content Include="Views\ProjectSearchJson.cshtml" />
     <Content Include="Views\Partials\_ProjectSearchJson.cshtml" />
     <Content Include="Views\ProjectCreate.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Partials\_LikeJson.cshtml" />
+    <Content Include="Views\LikeJson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -437,6 +436,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -446,9 +446,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\" />
+    <Folder Include="Views\Like\" />
     <Folder Include="Views\Membership\" />
     <Folder Include="Views\Search\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
