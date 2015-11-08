@@ -46,11 +46,11 @@
                     </div>
                     <div class="col-sm-4 col-sm-offset-4">
                         <div class="image-edit">
-                            <img src="@projectProperties.First(p => p.Alias.Equals("image")).Value" />
+                            <img id="replace" src="@projectProperties.First(p => p.Alias.Equals("image")).Value" />
                         </div>
                         <div class="introdu">
                             Alege Fisier
-                            <input type="file" name="image" />
+                            <input id="introdu" type="file" name="image" />
                         </div>
                     </div>
             </form>
