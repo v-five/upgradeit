@@ -353,8 +353,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
     <Content Include="Content\font\awesome\fontawesome-webfont.eot" />
     <Content Include="Content\font\awesome\fontawesome-webfont.ttf" />
     <Content Include="Content\font\awesome\fontawesome-webfont.woff" />
@@ -368,10 +366,6 @@
     <Content Include="Content\less\mixins.less" />
     <Content Include="Content\less\style.less" />
     <Content Include="Content\less\variables.less" />
-    <None Include="scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="scripts\jquery-1.10.2.js" />
-    <Content Include="scripts\jquery-1.10.2.min.js" />
-    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -403,7 +397,6 @@
     <Content Include="Views\Project.cshtml" />
     <Content Include="Views\ProjectEdit.cshtml" />
     <Content Include="Views\MacroPartials\LoginForm.cshtml" />
-    <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Partials\_LoginForm.cshtml" />
     <Content Include="Views\MacroPartials\RegisterForm.cshtml" />
     <Content Include="Views\Partials\_RegisterForm.cshtml" />
