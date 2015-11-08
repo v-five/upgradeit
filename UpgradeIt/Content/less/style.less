@@ -1070,6 +1070,8 @@ h1 {
   background-color: red;
 }
 
+
+
 .poject-page {
     .edit {
         margin-top:10px;
@@ -1164,6 +1166,12 @@ h1 {
     .likes{
         font-size:1.5em;
         padding:10px;
+
+        .like-project {
+            position:relative;
+            top:4px;
+        }
+        
         i {
             font-size:1em;
             color:@orange;
@@ -1247,6 +1255,31 @@ h1 {
         }
     }
 }
+
+.share-wrapper {
+    position:absolute;
+        top: 17px;
+    right: -71px;
+    &.no-absolut {
+        position:initial;
+        display:inline-block;
+        vertical-align:top;
+
+    }
+    li {
+        zoom:1;
+        display:inline-block;
+        margin-left:10px;
+        a {
+                img {
+                width:auto!important;
+        
+            }
+        }
+    }
+   
+}
+
 
 .footer {
 
@@ -1484,7 +1517,14 @@ h1 {
          font-size:20px;
      }
 
+    .button-home {
+        display:block;
+        margin-top:20px !important;
+    }
 
+    .share-wrapper {
+        position:initial;
+    }
 
     .header .sub-header h1 {
         font-size:2.4em;

@@ -1120,6 +1120,10 @@ h1 {
   font-size: 1.5em;
   padding: 10px;
 }
+.poject-page .likes .like-project {
+  position: relative;
+  top: 4px;
+}
 .poject-page .likes i {
   font-size: 1em;
   color: #f54f29;
@@ -1192,6 +1196,24 @@ h1 {
   position: absolute;
   top: 0;
   cursor: pointer;
+}
+.share-wrapper {
+  position: absolute;
+  top: 17px;
+  right: -71px;
+}
+.share-wrapper.no-absolut {
+  position: initial;
+  display: inline-block;
+  vertical-align: top;
+}
+.share-wrapper li {
+  zoom: 1;
+  display: inline-block;
+  margin-left: 10px;
+}
+.share-wrapper li a img {
+  width: auto!important;
 }
 .footer h3 {
   margin-top: 0;
@@ -1415,6 +1437,13 @@ h1 {
 @media (max-width: 767px) {
   body {
     font-size: 20px;
+  }
+  .button-home {
+    display: block;
+    margin-top: 20px !important;
+  }
+  .share-wrapper {
+    position: initial;
   }
   .header .sub-header h1 {
     font-size: 2.4em;
