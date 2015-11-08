@@ -7,30 +7,52 @@
     var areas = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Areas").Id).PreValuesAsDictionary.Select(x => x.Value);
 }
 
-<form method="POST" enctype="multipart/form-data">
-    <span>Project Title:</span>
-    <input name="title" />
-    <span>Description:</span>
-    <textarea name="description"></textarea>
-    <span>Image:</span>
-    <img width="25px" src=""><input type="file" name="image" />
-    <span>Allow Comments:</span>
-    <input type="checkbox" name="allowComments" />
-    <span>Project Type</span>
-    <select name="projectType">
-        @foreach (var type in types)
-        {
-        <option value="@type.Id"> @type.Value</option>
-        }
-    </select>
+<div class="content project-edit-page">
+    <div class="container">
+        <div class="title">
+            <h1>@Model.Content.GetPropertyValue("title")</h1>
+        </div>
+        <div class="row">
 
-    <span>Project Area</span>
-    <select name="area">
-        @foreach (var area in areas)
-        {
-        <option value="@area.Id">@area.Value</option>
-        }
-    </select>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="col-sm-4 inputs">
+                    <p>Project Title:</p>
+                    <input type="text" name="title" />
+                    <p>Description:</p>
+                    <textarea name="description"></textarea>
 
-    <button type="submit">Submit</button>
-</form>
+                    <p>Allow Comments:</p>
+                    <input type="checkbox" name="allowComments"  />
+                    <p>Project Type</p>
+                    <select name="projectType">
+                        @foreach (var type in types)
+                        {
+                            <option value="@type.Id"> @type.Value</option>
+                        }
+                    </select>
+
+                    <p>Project Area</p>
+                    <select name="area">
+                        @foreach (var area in areas)
+                        {
+                            <option value="@area.Id">@area.Value</option>
+                        }
+                    </select>
+
+                    <button class="submit" type="submit">Submit</button>
+
+                </div>
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div class="image-edit">
+                        <img src="~/Content/img/thumbnail-default.jpg" />
+                    </div>
+                    <div class="introdu">
+                        Alege Fisier
+                        <input type="file" name="image" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

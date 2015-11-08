@@ -42,18 +42,21 @@
                     <div class="mobile-menu uppercase"><span>menu</span></div>
                     <div class="search pull-right">
                         <a href=""><i class="fa fa-search"></i></a>
-                        <input class="search-input" type="search" placeholder="Type and hit Enter" />
+                        <div class="search-input">
+                            <input class="" type="search" placeholder="Type and hit Enter" />
+                            <div class="search-results"></div>
+                        </div>
                     </div>
                     <ul class="clearfix pull-right">
                         <li class="uppercase"><a href="">About</a></li>
                         <li class="uppercase"><a href="">Contact</a></li>
                         @if (isLoggedIn)
                         {
-                            <li class="uppercase"><i class="fa fa-user"></i>@currentUser.UserName</li>
-                            <li class="uppercase"><i class="fa fa-sign-out"></i>@Html.ActionLink("Logout", "Logout", "Membership", new { currentPageUrl = Request.Url.AbsoluteUri }, null)</li>
+                            <li class="uppercase"><a><i class="fa fa-user"></i>@currentUser.UserName</a></li>
+    <li class="uppercase"><a href="@Url.Action("Logout", "Membership", new { currentPageUrl = Request.Url.AbsoluteUri })"><i class="fa fa-sign-out"></i>Logout</a></li>
                         }
                         else
-                        { 
+                        {
                             <li class="uppercase"><a id="loginO"><i class="fa fa-sign-in"></i>Login</a></li>
                             <li class="uppercase"><a id="registerO"><i class="fa fa-chevron-circle-up"></i>Register</a></li>
                         }
@@ -78,7 +81,7 @@
         }
     }
 
-    <div class="search-results"></div>
+    
 
     <div id="overlay">
         <div class="form">

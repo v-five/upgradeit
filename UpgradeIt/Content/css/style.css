@@ -119,19 +119,29 @@ h1 {
   right: 0;
   margin-top: 10px;
   width: 288px;
-  padding: 10px;
-  border: none;
   display: none;
   font-family: Roboto-light;
   font-size: 1em;
 }
-.header .top-header .menu .search .search-input:hover,
-.header .top-header .menu .search .search-input:focus,
-.header .top-header .menu .search .search-input:active,
-.header .top-header .menu .search .search-input:visited {
+.header .top-header .menu .search .search-input input {
+  width: 288px;
+  padding: 10px;
+  border: none;
+}
+.header .top-header .menu .search .search-input input:hover,
+.header .top-header .menu .search .search-input input:focus,
+.header .top-header .menu .search .search-input input:active,
+.header .top-header .menu .search .search-input input:visited {
   text-decoration: none;
   outline: none !important;
   color: initial;
+}
+.header .top-header .menu .search .search-input .search-results .searchresults {
+  position: absolute;
+  width: 288px;
+  height: 300px;
+  left: 0;
+  background: #ffffff;
 }
 .header .top-header .menu ul li {
   float: left;
@@ -145,26 +155,13 @@ h1 {
 .header .top-header .menu ul li a i {
   margin-right: 8px;
 }
-.header .top-header .menu ul li a:after {
-  position: absolute;
-  bottom: -5px;
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: #f54f29;
-  opacity: 0;
+.header .top-header .menu ul li a:hover {
+  color: #f54f29;
   -moz-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s;
   -webkit-transition: all 0.3s ease-out 0s;
   -ms-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-}
-.header .top-header .menu ul li a.active:after {
-  opacity: 1;
-}
-.header .top-header .menu ul li a:hover:after {
-  opacity: 1;
 }
 .header .sub-header {
   border-bottom: none;
@@ -180,10 +177,10 @@ h1 {
   font-size: 1.625em;
   margin-bottom: 64px;
 }
-.header .sub-header .scrollto {
+.header .sub-header .button-home {
   color: #ffffff;
   background: #f54f29;
-  font-family: Roboto-light;
+  font-family: Roboto-medium;
   font-size: 1.125em;
   line-height: 1.125em;
   border: none;
@@ -191,8 +188,9 @@ h1 {
   position: relative;
   border-radius: 15px;
   border: 1px solid transparent;
+  margin: 0 20px;
 }
-.header .sub-header .scrollto:hover {
+.header .sub-header .button-home:hover {
   color: #f54f29;
   background: #ffffff;
   -moz-transition: all 0.3s ease-out 0s;
@@ -1086,7 +1084,6 @@ h1 {
 }
 .project-edit-page .image-edit {
   padding: 20px;
-  padding-top: 10px;
   border: 1px solid #d5d5d5;
   border-top: none;
 }
@@ -1166,6 +1163,7 @@ h1 {
   color: #6e6e6e;
 }
 .footer .categories {
+  margin-top: 60px;
   background-size: cover;
   height: 380px;
   display: table;
