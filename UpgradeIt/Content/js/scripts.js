@@ -3,6 +3,7 @@
     showSearch();
     showMenu();
     formLookup();
+    CreateProjectLoggedin();
 
     var owl = $('.owl-carousel-about');
     owl.owlCarousel({
@@ -35,7 +36,6 @@
     }
     });
     scroll();
-
 
     $("#introdu").change(function () {
         readURL(this);
@@ -214,4 +214,21 @@ function readURL(input) {
     }
 }
 
+function CreateProjectLoggedin() {
 
+    $('#create-project').click(function(event){
+        if ($("#create-project").hasClass("not-loggedin")) {
+            event.preventDefault();
+            $('#overlay').css('display', 'initial');
+            $('.background-black').css('display', 'initial');
+            $('.login').addClass('active');
+            $('.signup').removeClass('active');
+            $('#login').css('display', 'initial');
+            $('#signup').css('display', 'none');
+            $('body').addClass('noscroll');
+        }
+        else {
+            //Do the same as before
+        }
+    });
+}
