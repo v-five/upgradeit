@@ -7,6 +7,7 @@
     var memberService = ApplicationContext.Current.Services.MemberService;
     var currentMember = umbraco.cms.businesslogic.member.Member.GetCurrentMember();
     var liked = currentMember != null && likes.Any(l => l.GetPropertyValue("author").Equals(currentMember.Id));
+    var editable = currentMember != null && Model.Content.GetPropertyValue<int>("author") == currentMember.Id;
 }
 <div class="poject-page content">
     <div class="container">
@@ -23,7 +24,10 @@
             </div>
             <div class="col-sm-8">
                 <div class="text-right edit">
-                    <a href="/project-edit/?id=@Model.Content.Id"><i class="fa fa-edit"></i> Edit</a>
+                    @if (editable)
+                    {
+                        <a href="/project-edit/?id=@Model.Content.Id"><i class="fa fa-edit"></i> Edit</a>
+                    }
                 </div>
                 <p class="categorie">Categoria: <span>@Model.Content.GetPropertyValue("projectType")</span></p>
                 <p class="description">@Model.Content.GetPropertyValue("description")</p>
