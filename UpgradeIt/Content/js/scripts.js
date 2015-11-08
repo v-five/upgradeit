@@ -4,6 +4,7 @@
     showMenu();
     formLookup();
     CreateProjectLoggedin();
+    loginFix();
 
     var owl = $('.owl-carousel-about');
     owl.owlCarousel({
@@ -143,6 +144,7 @@ function formLookup() {
         $('#login').css('display', 'initial');
         $('#signup').css('display', 'none');
         $('body').addClass('noscroll');
+
     })
 
     $(document).mouseup(function (e) {
@@ -166,6 +168,7 @@ function formLookup() {
             $('body').removeClass('noscroll');
         }
     });
+
    
 }
 
@@ -231,4 +234,46 @@ function CreateProjectLoggedin() {
             //Do the same as before
         }
     });
+}
+
+
+function loginFix() {
+
+    //Login
+    if ($('#Username').val() === "") {
+        $('#Username').prev('label').removeClass('active highlight');
+    }
+    else {
+        $('#Username').prev('label').addClass('active highlight');
+    }
+
+    if ($('#login #Password').val() === "") {
+        $('#login #Password').prev('label').removeClass('active highlight');
+    }
+    else {
+        $('#login #Password').prev('label').addClass('active highlight');
+    }
+    //Register
+    if ($('#Email').val() === "") {
+        $('#Email').prev('label').removeClass('active highlight');
+    }
+    else {
+        $('#Email').prev('label').addClass('active highlight');
+    }
+
+    if ($('#signup #Password').val() === "") {
+        $('#signup #Password').prev('label').removeClass('active highlight');
+    }
+    else {
+        $('#signup #Password').prev('label').addClass('active highlight');
+    }
+
+    if ($('#ConfirmPassword').val() === "") {
+        $('#ConfirmPassword').prev('label').removeClass('active highlight');
+    }
+    else {
+        $('#ConfirmPassword').prev('label').addClass('active highlight');
+    }
+
+
 }

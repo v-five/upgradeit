@@ -8,30 +8,38 @@
     var currentMember = umbraco.cms.businesslogic.member.Member.GetCurrentMember();
     var liked = currentMember != null && likes.Any(l => l.GetPropertyValue("author").Equals(currentMember.Id));
     var editable = currentMember != null && Model.Content.GetPropertyValue<int>("author") == currentMember.Id;
+    var isLoggedin = currentMember != null;
 }
 
 @section scripts{
     <script>
         $(document).ready(function () {
             $('.like-project').on('click', function (e) {
-                e.preventDefault();
-                var numberOfLikes = parseInt($(".like-counter").text());
-                if($(".like-project i").hasClass("fa-heart"))
-                {
-                    numberOfLikes = numberOfLikes - 1;
+                console.log($(this));
+                if ($("#heart").hasClass("not-loggedin") == false) {
+                    var numberOfLikes = parseInt($(".like-counter").text());
+                    if($(".like-project i").hasClass("fa-heart"))
+                    {
+                        numberOfLikes = numberOfLikes - 1;
+                    }
+                    else
+                    {
+                        numberOfLikes = numberOfLikes + 1;
+                    }
+                    $(".like-counter").text(numberOfLikes);
+                    $(".like-project i").toggleClass("fa-heart").toggleClass("fa-heart-o");
+                    $.ajax({
+                        type: "GET",
+                        url: '/add-like?projectId=' + @Model.Content.Id,
+                        crossDomain: true,
+                    }).done(function (data) {
+                    });
                 }
-                else
-                {
-                    numberOfLikes = numberOfLikes + 1;
+                else{
+                    //do nothing
+                    e.preventDefault();
+                    alert("Autentifica-te pentru a vota!");
                 }
-                $(".like-counter").text(numberOfLikes);
-                $(".like-project i").toggleClass("fa-heart").toggleClass("fa-heart-o");
-                $.ajax({
-                    type: "GET",
-                    url: '/add-like?projectId=' + @Model.Content.Id,
-                    crossDomain: true,
-                }).done(function (data) {
-                });
             });
         });
     </script>
@@ -49,7 +57,12 @@
                     
                 </div>
 
-                <div class="likes"><a class="like-project" href=""><span class="like-counter">@likes.Count()</span> <i class="fa @(liked ? "fa-heart" : "fa-heart-o")"></i></a></div>
+                <div class="likes">
+                    <a class="like-project" href="">
+                        <span class="like-counter">@likes.Count()</span> 
+                        <i id="heart" class="fa @(liked ? "fa-heart" : "fa-heart-o") @(!isLoggedin ? "not-loggedin" : "")"></i>
+                    </a>
+                </div>
             </div>
             <div class="col-sm-8">
                 <div class="text-right edit">
