@@ -410,7 +410,6 @@
     <Content Include="Views\ProjectSearchJson.cshtml" />
     <Content Include="Views\Partials\_ProjectSearchJson.cshtml" />
     <Content Include="Views\ProjectCreate.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Partials\_LikeJson.cshtml" />
     <Content Include="Views\LikeJson.cshtml" />
