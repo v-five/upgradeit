@@ -332,6 +332,7 @@
     <Content Include="Content\font\awesome\fontawesome-webfont.svg" />
     <Content Include="Content\icon\favicon.ico" />
     <Content Include="Content\img\bg-header.jpg" />
+    <Content Include="Content\img\loader.gif" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\js\bootstrap-datepicker.js" />
     <Content Include="Content\js\bootstrap.min.js" />
@@ -447,15 +448,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Model\CommentModel.cs" />
     <Compile Include="Model\JsonProjectModel.cs" />
+    <Compile Include="Model\LikeModel.cs" />
     <Compile Include="Model\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Comments\" />
     <Folder Include="Views\Like\" />
     <Folder Include="Views\Membership\" />
     <Folder Include="Views\Search\" />

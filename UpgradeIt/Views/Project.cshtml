@@ -12,25 +12,50 @@
 
 @section scripts{
     <script>
-        $(document).ready(function () {
-            $('.like-project').on('click', function (e) {
-                e.preventDefault();
-                var numberOfLikes = parseInt($(".like-counter").text());
-                if($(".like-project i").hasClass("fa-heart"))
-                {
-                    numberOfLikes = numberOfLikes - 1;
-                }
-                else
-                {
-                    numberOfLikes = numberOfLikes + 1;
-                }
-                $(".like-counter").text(numberOfLikes);
-                $(".like-project i").toggleClass("fa-heart").toggleClass("fa-heart-o");
-                $.ajax({
-                    type: "GET",
-                    url: '/add-like?projectId=' + @Model.Content.Id,
-                    crossDomain: true,
+    $(document).ready(function () {
+        $('.like-project').on('click', function (e) {
+            e.preventDefault();
+            var numberOfLikes = parseInt($(".like-counter").text());
+            if($(".like-project i").hasClass("fa-heart"))
+            {
+                numberOfLikes = numberOfLikes - 1;
+            }
+            else
+            {
+                numberOfLikes = numberOfLikes + 1;
+            }
+            $(".like-counter").text(numberOfLikes);
+            $(".like-project i").toggleClass("fa-heart").toggleClass("fa-heart-o");
+            var like = {
+                ProjectId: @Model.Content.Id,
+            };
+            $.ajax({
+                type: "POST",
+                url: '/Umbraco/api/Like/AddLike',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(like)
                 }).done(function (data) {
+                });
+            });
+
+            $('.adauga').on('click', function(e) {
+                e.preventDefault();
+                $(".comment-loader").show();
+                $(".adauga").prop('disabled', true);
+                var comment = {
+                    ProjectId: @Model.Content.Id,
+                    CommentTitle: $('.titlu').val(),
+                    CommentBody: $('.comment-line').val()
+                };
+                $.ajax({
+                    type: "POST",
+                    url: '/Umbraco/api/Comments/AddComment',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(comment)
+                }).done(function (data) {
+                    location.reload();
                 });
             });
         });
@@ -91,6 +116,7 @@
                     <input class="titlu" type="text" placeholder="Titlu"/>
                     <textarea class="comment-line"></textarea>
                     <button class="adauga" type="submit">Adauga</button>
+                    <img src="~/Content/img/loader.gif" class="comment-loader" style="display:none" />
 
         </div>
 

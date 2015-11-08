@@ -2,36 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
 using umbraco;
 using umbraco.cms.businesslogic.web;
 using umbraco.NodeFactory;
 using Umbraco.Core.Models;
 using Umbraco.Web.Mvc;
+using Umbraco.Web.WebApi;
+using UpgradeIt.Model;
 
 namespace UpgradeIt.Controllers
 {
-    public class LikeController : SurfaceController
+    public class LikeController : UmbracoApiController
     {
-        public ActionResult Index()
+        [HttpPost]
+        public void AddLike([FromBody] LikeModel like)
         {
             if (User.Identity.IsAuthenticated)
             {
-
-                int projectId = 0;
-                if (Request.Params.AllKeys.Contains("projectId"))
-                {
-                    projectId = Convert.ToInt32(Request.Params["projectId"].ToString());
-                }
-
-
-                IEnumerable<Node> allLikes = uQuery.GetNodesByType("Like");
-
                 var memberService = ApplicationContext.Services.MemberService;
                 var contentService = ApplicationContext.Services.ContentService;
                 var currentUserId = memberService.GetByUsername(User.Identity.Name).Id;
 
-                var projectToLike = contentService.GetById(projectId);
+                var projectToLike = contentService.GetById(like.ProjectId);
 
                 var projectLikesFolder = projectToLike.Children().Where(c => c.ContentType.Alias.Equals("Likes")).FirstOrDefault();
 
@@ -56,13 +49,6 @@ namespace UpgradeIt.Controllers
                 }
 
             }
-
-
-            return Json(new 
-            { 
-                success = true, 
-                errorMessage = "" 
-            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
