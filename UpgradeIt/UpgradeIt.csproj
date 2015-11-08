@@ -346,7 +346,6 @@
     <Content Include="Content\js\utils.js" />
     <Content Include="media\1001\sql-nosql.jpg" />
     <Content Include="media\1001\sql-nosql_thumb.jpg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="media\projects\nosql-expert.gif" />
     <Content Include="media\projects\_D8E0320.jpg" />
     <Content Include="media\projects\_D8E0320_big-thumb.jpg" />
@@ -404,9 +403,6 @@
     <Content Include="Views\Project.cshtml" />
     <Content Include="Views\ProjectEdit.cshtml" />
     <Content Include="Views\MacroPartials\LoginForm.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Partials\_LoginForm.cshtml" />
     <Content Include="Views\MacroPartials\RegisterForm.cshtml" />
@@ -456,6 +452,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="fonts\" />
     <Folder Include="Views\Membership\" />
     <Folder Include="Views\Search\" />
     <Folder Include="Views\Shared\" />
