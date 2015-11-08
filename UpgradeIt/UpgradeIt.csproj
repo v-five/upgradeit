@@ -333,6 +333,7 @@
     <Content Include="Content\icon\favicon.ico" />
     <Content Include="Content\img\bg-header.jpg" />
     <Content Include="Content\img\like.png" />
+    <Content Include="Content\img\loader.gif" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\share.png" />
     <Content Include="Content\img\thumbnail-default.jpg" />
@@ -453,14 +454,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Model\CommentModel.cs" />
     <Compile Include="Model\JsonProjectModel.cs" />
+    <Compile Include="Model\LikeModel.cs" />
     <Compile Include="Model\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Comments\" />
+    <Folder Include="Views\Like\" />
     <Folder Include="Views\Membership\" />
     <Folder Include="Views\Search\" />
     <Folder Include="Views\Shared\" />
