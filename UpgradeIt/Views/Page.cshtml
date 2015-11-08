@@ -6,9 +6,6 @@
 @{
     var currentUser = Membership.GetUser();
     var isLoggedIn = currentUser != null;
-
-    var dataTypeService = ApplicationContext.Services.DataTypeService;
-    var types = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Project Types").Id).PreValuesAsDictionary.Select(x => x.Value);
 }
 
 <!DOCTYPE html>
@@ -37,7 +34,8 @@
             <div class="row top-header">
                 <div class="col-sm-3 logo">
                     <a href="/">
-                        <img src="/content/img/logo.png" />
+       
+                        <img src="~/Content/img/logo.png" />
                     </a>
                 </div>
                 <div class="col-sm-9 menu clearfix">
@@ -80,6 +78,8 @@
         }
     }
 
+    <div class="search-results"></div>
+
     <div id="overlay">
         <div class="form">
             <ul class="tab-group">
@@ -102,40 +102,7 @@
     <div class="background-black"></div>
 
     <div class="footer">
-        <div class="categories">
-            <div class="categories-center">
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <h3>Categories</h3>
-                            <p>Discover more about our Technologies applied to our works:</p>
-                        </div>
-                    </div>
-                    <div class="row text-center clearfix">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <ul class="category-list clearfix text-center">
-                                @foreach (var type in types)
-                                {
-                                    <li><a class="category-item">@type.Value</a></li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="where text-center">
-            <h3>Where to find us</h3>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 text-center">
-                        <p><strong>Timisoara </strong>Complex Heaven</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <div class="footer-menu">
             <div class="container">
                 <div class="row">

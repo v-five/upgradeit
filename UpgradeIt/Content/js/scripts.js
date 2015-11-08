@@ -163,3 +163,26 @@ function formLookup() {
     });
    
 }
+
+$('.search .search-input').keyup(function () {
+    var searchField = $(this).val();
+    var myExp = new RegExp(searchField, "i");
+    $.ajax({
+        type: "GET",
+        url: '/project-search?keyword=' + searchField,
+        crossDomain: true,
+    }).done(function (data) {
+		var output = '<ul class="searchresults">';
+		$.each(data, function (key, val) {
+		    if ((val.Title.search(myExp) != -1)) {
+		        output += '<li>';
+		        output += '<h2>' + val.Title + '</h2>';
+		        output += '<img src="' + val.ImageUrl + '" alt="' + val.Title + '" />';
+		        output += '<p>' + val.Description + '</p>';
+		        output += '</li>';
+		    }
+		});
+		output += '</ul>';
+		$('.search-results').html(output);
+	});
+});
