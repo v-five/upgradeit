@@ -411,8 +411,8 @@ h1 {
   }
 }
 .content .features {
-  padding-top: 78px;
-  padding-bottom: 78px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   text-align: center;
 }
 .content .features .title-features {
@@ -1024,6 +1024,135 @@ h1 {
 }
 #container {
   background-color: red;
+}
+.poject-page .edit {
+  margin-top: 10px;
+}
+.poject-page .edit i {
+  color: #f54f29;
+}
+.poject-page .categorie {
+  font-family: Roboto-bold;
+  color: #000000;
+}
+.poject-page .categorie span {
+  color: #f54f29;
+}
+.poject-page .comments {
+  margin-top: 50px;
+  padding-top: 17px;
+  border: 1px solid #d5d5d5;
+  margin-bottom: 0;
+}
+.poject-page .comments ul {
+  padding-top: 17px;
+}
+.poject-page .comments ul .commentary-title {
+  font-family: roboto-bold;
+  font-size: 1.6em;
+  color: #000000;
+  margin: 0;
+}
+.poject-page .comments ul li {
+  padding: 20px;
+  border-top: 1px solid #d5d5d5;
+}
+.poject-page .comments .comm-title {
+  font-family: roboto-bold;
+  font-size: 1.6em;
+  color: #f54f29;
+  margin: 0;
+  padding-left: 20px;
+}
+.poject-page .image-holder {
+  padding: 20px;
+  border: 1px solid #d5d5d5;
+  border-top: none;
+}
+.poject-page .image-holder img {
+  width: 100%;
+}
+.poject-page .description {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.poject-page .likes {
+  font-size: 1.5em;
+  padding: 10px;
+}
+.poject-page .likes i {
+  font-size: 1em;
+  color: #f54f29;
+}
+.project-edit-page .image-edit {
+  padding: 20px;
+  padding-top: 10px;
+  border: 1px solid #d5d5d5;
+  border-top: none;
+}
+.project-edit-page .image-edit img {
+  width: 100%;
+}
+.project-edit-page .inputs {
+  margin-top: 10px;
+}
+.project-edit-page .inputs p {
+  font-family: roboto-bold;
+  color: #000000;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+.project-edit-page .inputs input[type="text"] {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #f54f29;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: Roboto-light;
+}
+.project-edit-page .inputs textarea {
+  border: 1px solid #f54f29;
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-family: Roboto-light;
+}
+.project-edit-page .inputs select {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #f54f29;
+}
+.project-edit-page .inputs .submit {
+  margin-top: 20px;
+  font-family: Roboto-bold;
+  height: 50px;
+  line-height: 50px;
+  background: #f54f29;
+  color: #ffffff;
+  border: none;
+  padding: 0 20px;
+}
+.project-edit-page .introdu {
+  margin-top: 20px;
+  width: 157px;
+  height: 50px;
+  background: #f54f29;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  line-height: 50px;
+  color: #ffffff;
+  padding-left: 10px;
+}
+.project-edit-page .introdu input {
+  display: block !important;
+  width: 157px !important;
+  height: 57px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
 }
 .footer h3 {
   margin-top: 0;

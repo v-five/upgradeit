@@ -9,31 +9,52 @@
     var types = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Project Types").Id).PreValuesAsDictionary.Select(x => x.Value);
     var areas = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Areas").Id).PreValuesAsDictionary.Select(x => x.Value);
 }
+<div class="content project-edit-page">
+    <div class="container">
+        <div class="title">
+            <h1>@Model.Content.GetPropertyValue("title")</h1>
+        </div>
+        <div class="row">
+            
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="col-sm-4 inputs">
+                        <p>Project Title:</p>
+                        <input type="text" name="title" value="@projectProperties.First(p => p.Alias.Equals("title")).Value" />
+                        <p>Description:</p>
+                        <textarea name="description">@projectProperties.First(p => p.Alias.Equals("description")).Value</textarea>
 
-<form method="POST" enctype="multipart/form-data">
-    <span>Project Title:</span>
-    <input name="title" value="@projectProperties.First(p => p.Alias.Equals("title")).Value" />
-    <span>Description:</span>
-    <textarea name="description">@projectProperties.First(p => p.Alias.Equals("description")).Value</textarea>
-    <span>Image:</span>
-    <img width="25px" src="@projectProperties.First(p => p.Alias.Equals("image")).Value"><input type="file" name="image" />
-    <span>Allow Comments:</span>
-    <input type="checkbox" name="allowComments" @(Convert.ToBoolean(projectProperties.First(p => p.Alias.Equals("allowComments")).Value) ? "checked" : "") />
-    <span>Project Type</span>
-    <select name="projectType">
-        @foreach (var type in types)
-        {
-            <option value="@type.Id" @(projectProperties.First(p => p.Alias.Equals("projectType")).Value.Equals(type.Id.ToString()) ? "selected" : "")> @type.Value</option>
-        }
-    </select>
+                        <p>Allow Comments:</p>
+                        <input type="checkbox" name="allowComments" @(Convert.ToBoolean(projectProperties.First(p => p.Alias.Equals("allowComments")).Value) ? "checked" : "") />
+                        <p>Project Type</p>
+                        <select name="projectType">
+                            @foreach (var type in types)
+                            {
+                                <option value="@type.Id" @(projectProperties.First(p => p.Alias.Equals("projectType")).Value.Equals(type.Id.ToString()) ? "selected" : "")> @type.Value</option>
+                            }
+                        </select>
 
-    <span>Project Area</span>
-    <select name="area">
-        @foreach (var area in areas)
-        {
-            <option value="@area.Id" @(projectProperties.First(p => p.Alias.Equals("area")).Value.Equals(area.Id.ToString()) ? "selected" : "")>@area.Value</option>
-        }
-    </select>
+                        <p>Project Area</p>
+                        <select name="area">
+                            @foreach (var area in areas)
+                            {
+                                <option value="@area.Id" @(projectProperties.First(p => p.Alias.Equals("area")).Value.Equals(area.Id.ToString()) ? "selected" : "")>@area.Value</option>
+                            }
+                        </select>
 
-    <button type="submit">Submit</button>
-</form>
+                        <button class="submit" type="submit">Submit</button>
+
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="image-edit">
+                            <img src="@projectProperties.First(p => p.Alias.Equals("image")).Value" />
+                        </div>
+                        <div class="introdu">
+                            Alege Fisier
+                            <input type="file" name="image" />
+                        </div>
+                    </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
