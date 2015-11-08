@@ -21,7 +21,10 @@ namespace UpgradeIt.Controllers
 
             var rootNode = Umbraco.TypedContentAtRoot().First();
 
-            var searchResults = rootNode.Children.Where(p => p.GetProperty("isApproved") != null && (bool)p.GetProperty("isApproved").Value && p.GetProperty("title").Value.ToString().Contains(searchKeyword)).Select(x=>new JsonProjectModel(x.GetProperty("title"), x.GetProperty("description"), x.GetProperty("image"), x.Url));
+            var searchResults = rootNode.Children.Where(p => p.GetProperty("isApproved") != null && (bool)p.GetProperty("isApproved").Value && p.GetProperty("title")
+                .Value.ToString().ToLower().Contains(searchKeyword.ToLower())).Select(x=>new JsonProjectModel(x.GetProperty("title"), x.GetProperty("description"), x.GetProperty("image"), x.Url));
+
+            Response.AddHeader("Access-Control-Allow-Origin", "*");
 
             return Json(searchResults, JsonRequestBehavior.AllowGet);
         }
