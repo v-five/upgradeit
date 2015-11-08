@@ -19,7 +19,7 @@ namespace UpgradeIt.Model
 
         [Required]
         [StringLength(255, MinimumLength = 8)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
