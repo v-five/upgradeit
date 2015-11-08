@@ -23,6 +23,7 @@
     <ApplicationInsightsResourceId>/subscriptions/d3b4cf02-980c-48c1-8bcb-3b1032d1b28e/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/UpgradeIt</ApplicationInsightsResourceId>
     <NuGetPackageImportStamp>db7e0755</NuGetPackageImportStamp>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -331,7 +332,12 @@
     <Content Include="Content\font\awesome\fontawesome-webfont.svg" />
     <Content Include="Content\icon\favicon.ico" />
     <Content Include="Content\img\bg-header.jpg" />
+    <Content Include="Content\img\like.png" />
+    <Content Include="Content\img\loader.gif" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\share.png" />
+    <Content Include="Content\img\thumbnail-default.jpg" />
+    <Content Include="Content\img\tweet.png" />
     <Content Include="Content\js\bootstrap-datepicker.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\circle-progress.js" />
@@ -344,10 +350,18 @@
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\scripts.js" />
     <Content Include="Content\js\utils.js" />
+    <Content Include="media\1001\sql-nosql.jpg" />
+    <Content Include="media\1001\sql-nosql_thumb.jpg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="media\projects\nosql-expert.gif" />
+    <Content Include="media\projects\_D8E0320.jpg" />
+    <Content Include="media\projects\_D8E0320_big-thumb.jpg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
     <Content Include="Content\font\awesome\fontawesome-webfont.eot" />
     <Content Include="Content\font\awesome\fontawesome-webfont.ttf" />
     <Content Include="Content\font\awesome\fontawesome-webfont.woff" />
@@ -361,6 +375,10 @@
     <Content Include="Content\less\mixins.less" />
     <Content Include="Content\less\style.less" />
     <Content Include="Content\less\variables.less" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -392,15 +410,16 @@
     <Content Include="Views\Project.cshtml" />
     <Content Include="Views\ProjectEdit.cshtml" />
     <Content Include="Views\MacroPartials\LoginForm.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Partials\_LoginForm.cshtml" />
     <Content Include="Views\MacroPartials\RegisterForm.cshtml" />
     <Content Include="Views\Partials\_RegisterForm.cshtml" />
     <Content Include="Views\ProjectSearchJson.cshtml" />
     <Content Include="Views\Partials\_ProjectSearchJson.cshtml" />
     <Content Include="Views\ProjectCreate.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Partials\_LikeJson.cshtml" />
-    <Content Include="Views\LikeJson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -435,19 +454,23 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Model\CommentModel.cs" />
     <Compile Include="Model\JsonProjectModel.cs" />
+    <Compile Include="Model\LikeModel.cs" />
     <Compile Include="Model\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="fonts\" />
+    <Folder Include="Views\Comments\" />
     <Folder Include="Views\Like\" />
     <Folder Include="Views\Membership\" />
     <Folder Include="Views\Search\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
@@ -480,7 +503,16 @@
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
     <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.3.1\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.3.1\build\UmbracoCms.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.3.1\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.3.1\build\UmbracoCms.targets'))" />
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <Import Project="..\packages\UmbracoCms.7.3.1\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.3.1\build\UmbracoCms.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

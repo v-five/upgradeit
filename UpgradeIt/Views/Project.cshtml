@@ -8,13 +8,15 @@
     var currentMember = umbraco.cms.businesslogic.member.Member.GetCurrentMember();
     var liked = currentMember != null && likes.Any(l => l.GetPropertyValue("author").Equals(currentMember.Id));
     var editable = currentMember != null && Model.Content.GetPropertyValue<int>("author") == currentMember.Id;
+    var isLoggedin = currentMember != null;
 }
 
 @section scripts{
     <script>
-        $(document).ready(function () {
-            $('.like-project').on('click', function (e) {
-                e.preventDefault();
+    $(document).ready(function () {
+        $('.like-project').on('click', function (e) {
+            e.preventDefault();
+            if ($("#heart").hasClass("not-loggedin") == false) {
                 var numberOfLikes = parseInt($(".like-counter").text());
                 if($(".like-project i").hasClass("fa-heart"))
                 {
@@ -26,11 +28,40 @@
                 }
                 $(".like-counter").text(numberOfLikes);
                 $(".like-project i").toggleClass("fa-heart").toggleClass("fa-heart-o");
+                var like = {
+                    ProjectId: @Model.Content.Id,
+                };
                 $.ajax({
-                    type: "GET",
-                    url: '/add-like?projectId=' + @Model.Content.Id,
-                    crossDomain: true,
+                    type: "POST",
+                    url: '/Umbraco/api/Like/AddLike',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(like)
                 }).done(function (data) {
+                });
+            }
+        
+            else{
+                alert("Autentifica-te pentru a vota!");
+            }
+        });
+            $('.adauga').on('click', function(e) {
+                e.preventDefault();
+                $(".comment-loader").show();
+                $(".adauga").prop('disabled', true);
+                var comment = {
+                    ProjectId: @Model.Content.Id,
+                    CommentTitle: $('.titlu').val(),
+                    CommentBody: $('.comment-line').val()
+                };
+                $.ajax({
+                    type: "POST",
+                    url: '/Umbraco/api/Comments/AddComment',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(comment)
+                }).done(function (data) {
+                    location.reload();
                 });
             });
         });
@@ -49,7 +80,17 @@
                     
                 </div>
 
-                <div class="likes"><a class="like-project" href=""><span class="like-counter">@likes.Count()</span> <i class="fa @(liked ? "fa-heart" : "fa-heart-o")"></i></a></div>
+                <div class="likes">
+                    <a class="like-project" href="">
+                        <span class="like-counter">@likes.Count()</span> 
+                        <i id="heart" class="fa @(liked ? "fa-heart" : "fa-heart-o") @(!isLoggedin ? "not-loggedin" : "")"></i>
+                    </a>
+					<ul class="share-wrapper no-absolut">
+                        <li><a href=""><img src="~/Content/img/like.png" /></a></li>
+                        <li><a href=""><img src="~/Content/img/share.png" /></a></li>
+                        <li><a href=""><img src="~/Content/img/tweet.png" /></a></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-sm-8">
                 <div class="text-right edit">
@@ -91,6 +132,7 @@
                     <input class="titlu" type="text" placeholder="Titlu"/>
                     <textarea class="comment-line"></textarea>
                     <button class="adauga" type="submit">Adauga</button>
+                    <img src="~/Content/img/loader.gif" class="comment-loader" style="display:none" />
 
         </div>
 
