@@ -6,25 +6,47 @@
     var likes = Model.Content.Descendants("Like");
     var memberService = ApplicationContext.Current.Services.MemberService;
 }
+<div class="poject-page content">
+    <div class="container">
+        <div class="title">
+            <h1>@Model.Content.GetPropertyValue("title")</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="image-holder">
+                    <img src="@image" />
+                    
+                </div>
+                <div class="likes"><a href="">@likes.Count() <i class="fa fa-heart-o"></i></a></div>
+            </div>
+            <div class="col-sm-8">
+                <div class="text-right edit">
+                    <a href="/project-edit/?id=@Model.Content.Id"><i class="fa fa-edit"></i> Edit</a>
+                </div>
+                <p class="categorie">Categoria: <span>Categorie</span></p>
+                <p class="description">@Model.Content.GetPropertyValue("description")</p>
+                
+            </div>
+        </div>
 
-<p>@Model.Content.GetPropertyValue("title")</p>
-<p>@Model.Content.GetPropertyValue("description")</p>
-<img src="@image" />
-
-<div>
-    <p>@likes.Count() Likes</p>
-    <p>Comments:</p>
-    <ul>
-        @foreach (var comment in comments)
-        {
-            var author = memberService.GetById(comment.GetPropertyValue<int>("author"));
-            <li>
-                <p>@comment.GetPropertyValue("title")</p>
-                <p>@comment.GetPropertyValue("text")</p>
-                <p>@author.Name</p>
-            </li>
-        }
-    </ul>
+        <div class="row ">
+            <div class="col-xs-12">
+                <div class="comments">
+                    <p class="comm-title">Comments:</p>
+                    <ul>
+                        @foreach (var comment in comments)
+                        {
+                            var author = memberService.GetById(comment.GetPropertyValue<int>("author"));
+                            <li>
+                                <p class="commentary-title">@comment.GetPropertyValue("title")</p>
+                                <p>@comment.GetPropertyValue("text")</p>
+                                <h6><i class="fa fa-user"></i> @author.Name</h6>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
-
-<a href="/project-edit/?id=@Model.Content.Id">Edit</a>

@@ -7,25 +7,19 @@
     <h1>Sign Up for Free</h1>
 
     <div class="field-wrap">
-        <label>
-            @Html.LabelFor(m => Model.Email)<span class="req">*</span>
-        </label>
+        @Html.LabelFor(m => Model.Email)
         @Html.TextBoxFor(m => Model.Email)
         @Html.ValidationMessageFor(m => Model.Email)
     </div>
 
     <div class="field-wrap">
-        <label>
-            @Html.LabelFor(m => Model.Password)<span class="req">*</span>
-        </label>
+        @Html.LabelFor(m => Model.Password)
         @Html.PasswordFor(m => Model.Password)
         @Html.ValidationMessageFor(m => Model.Password)
     </div>
 
     <div class="field-wrap">
-        <label>
-            @Html.LabelFor(m => Model.ConfirmPassword)<span class="req">*</span>
-        </label>
+        @Html.LabelFor(m => Model.ConfirmPassword)
         @Html.PasswordFor(m => Model.ConfirmPassword)
         @Html.ValidationMessageFor(m => Model.ConfirmPassword)
     </div>

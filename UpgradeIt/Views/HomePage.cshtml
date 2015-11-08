@@ -1,23 +1,32 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Page.cshtml";
-    var projects = Model.Content.Children().Where(p => p.GetPropertyValue<bool>("isApproved")).OrderBy(p => p.Descendants("like").Count()).Take(5);
 }
 
 @section subHeader{
 <div class="sub-header">
     <h1>@Model.Content.GetPropertyValue("motto")</h1>
-    <p>Upgrade InTimisoara is an initiative that gives<br>residents of Timisoara the opportunity to be a part of<br>shaping the city’s future by co-creating solutions for the Smarter Timisoara.</p>
-    <button class="scrollto">Find out more</button>
+    
+    <p>@Model.Content.GetPropertyValue("headerSubtitle")</p>
+    <button class="scrollto">Afla mai mult</button>
 </div>
 }
+
+
+@{
+    var projects = Model.Content.Children().Where(p => p.GetPropertyValue<bool>("isApproved")).OrderBy(p => p.Descendants("like").Count()).Take(5);
+
+    var dataTypeService = ApplicationContext.Services.DataTypeService;
+    var types = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Project Types").Id).PreValuesAsDictionary.Select(x => x.Value);
+}
+
 
 <div class="content">
     <div class="container">
         <div class="features">
             <div class="title-features">
-                <h3>We are a technical digital agency</h3>
-                <p>that delivers large, complex <i>online solutions</i> using a continuous development approach. </p>
+                <h3>@Model.Content.GetPropertyValue("contentTitle")</h3>
+                <p>@Model.Content.GetPropertyValue("contentSubtitle")</p>
             </div>
             <div class="about-us-homepage">
                 <div class="owl-carousel-about">
@@ -39,6 +48,41 @@
                         </div>
                     </div>
                     }
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="categories">
+                <div class="categories-center">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <h3>Categories</h3>
+                                <p>Discover more about our Technologies applied to our works:</p>
+                            </div>
+                        </div>
+                        <div class="row text-center clearfix">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <ul class="category-list clearfix text-center">
+                                    @foreach (var type in types)
+                                    {
+                                        <li><a class="category-item">@type.Value</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="where text-center">
+                <h3>Where to find us</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <p><strong>Timisoara </strong>Complex Heaven</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
