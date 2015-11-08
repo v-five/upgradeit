@@ -13,9 +13,8 @@
 </div>
 }
 
-
 @{
-    var projects = Model.Content.Children().Where(p => p.GetPropertyValue<bool>("isApproved")).OrderBy(p => p.Descendants("like").Count()).Take(5);
+    var projects = Model.Content.Children().First(x => x.DocumentTypeAlias.Equals("Projects")).Children(p => p.GetPropertyValue<bool>("isApproved")).OrderBy(p => p.Descendants("like").Count()).Take(5);
 
     var dataTypeService = ApplicationContext.Services.DataTypeService;
     var types = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Project Types").Id).PreValuesAsDictionary.Select(x => x.Value);
