@@ -414,6 +414,7 @@
     <Content Include="Views\Partials\_RegisterForm.cshtml" />
     <Content Include="Views\ProjectSearchJson.cshtml" />
     <Content Include="Views\Partials\_ProjectSearchJson.cshtml" />
+    <Content Include="Views\ProjectCreate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

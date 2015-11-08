@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Page.cshtml";
+    
+    var dataTypeService = ApplicationContext.Services.DataTypeService;
+    var types = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Project Types").Id).PreValuesAsDictionary.Select(x => x.Value);
+    var areas = dataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeService.GetDataTypeDefinitionByName("Areas").Id).PreValuesAsDictionary.Select(x => x.Value);
+}
+
+<form method="POST" enctype="multipart/form-data">
+    <span>Project Title:</span>
+    <input name="title" />
+    <span>Description:</span>
+    <textarea name="description"></textarea>
+    <span>Image:</span>
+    <img width="25px" src=""><input type="file" name="image" />
+    <span>Allow Comments:</span>
+    <input type="checkbox" name="allowComments" />
+    <span>Project Type</span>
+    <select name="projectType">
+        @foreach (var type in types)
+        {
+        <option value="@type.Id"> @type.Value</option>
+        }
+    </select>
+
+    <span>Project Area</span>
+    <select name="area">
+        @foreach (var area in areas)
+        {
+        <option value="@area.Id">@area.Value</option>
+        }
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
