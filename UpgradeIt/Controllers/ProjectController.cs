@@ -27,7 +27,7 @@ namespace UpgradeIt.Controllers
                     if (Request.HttpMethod.Equals("GET"))
                         return CurrentTemplate(model);
 
-                    var project = CreateProject(member.User);
+                    var project = CreateProject(member);
                     if (project != null) return this.Redirect(umbraco.library.NiceUrl(project.Id));
                 }
 
@@ -45,18 +45,18 @@ namespace UpgradeIt.Controllers
                     if (Request.HttpMethod.Equals("GET"))
                         return base.View(model);
 
-                    SaveProject(project, member.User);
+                    SaveProject(project, member);
                 }
 
                 return this.Redirect(umbraco.library.NiceUrl(id));
             }
         }
 
-        private Document CreateProject(User user)
+        private Document CreateProject(Member user)
         {
             if (!string.IsNullOrWhiteSpace(Request["title"]))
             {
-                var project = Document.MakeNew(Request["title"], DocumentType.GetByAlias("project"), user, new Node(1133).Id);
+                var project = Document.MakeNew(Request["title"], DocumentType.GetByAlias("project"), user.User, new Node(1133).Id);
                 SaveProject(project, user);
 
                 return project;
@@ -65,7 +65,7 @@ namespace UpgradeIt.Controllers
             return null;
         }
 
-        private void SaveProject(Document project, User user)
+        private void SaveProject(Document project, Member user)
         {
             if (!string.IsNullOrWhiteSpace(Request["title"]))
             {
@@ -79,6 +79,8 @@ namespace UpgradeIt.Controllers
                 project.getProperty("area").Value = Convert.ToInt32(Request["area"]);
             project.getProperty("allowComments").Value = !string.IsNullOrWhiteSpace(Request["allowComments"]) && Request["allowComments"].ToLower().Equals("on");
 
+            project.getProperty("author").Value = user.Id;
+
             if (Request.Files.Count > 0 && Request.Files[0].ContentLength > 0)
             {
                 var uploadedFile = Request.Files[0];
@@ -89,7 +91,7 @@ namespace UpgradeIt.Controllers
                 project.getProperty("image").Value = "/media/projects/" + fileName;
             }
 
-            project.SaveAndPublish(user);
+            project.SaveAndPublish(user.User);
             umbraco.library.UpdateDocumentCache(project.Id);
         }
     }
