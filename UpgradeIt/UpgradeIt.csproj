@@ -410,6 +410,10 @@
     <Content Include="Views\ProjectSearchJson.cshtml" />
     <Content Include="Views\Partials\_ProjectSearchJson.cshtml" />
     <Content Include="Views\ProjectCreate.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Partials\_LikeJson.cshtml" />
+    <Content Include="Views\LikeJson.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -444,6 +448,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -452,9 +457,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Like\" />
     <Folder Include="Views\Membership\" />
     <Folder Include="Views\Search\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

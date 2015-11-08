@@ -1055,6 +1055,48 @@ h1 {
   padding: 20px;
   border-top: 1px solid #d5d5d5;
 }
+.poject-page .comments .comment-line {
+  width: 60%;
+  height: 250px;
+  display: block;
+  margin-left: 20px;
+  margin-top: 10px;
+  border: 1px solid #f54f29;
+  padding: 10px;
+  font-family: Roboto-light;
+}
+.poject-page .comments .titlu {
+  width: 60%;
+  height: 50px;
+  display: block;
+  margin-left: 20px;
+  margin-top: 10px;
+  border: 1px solid #f54f29;
+  padding: 0 10px;
+  font-family: Roboto-light;
+}
+.poject-page .comments .adauga {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 150px;
+  height: 50px;
+  background: #f54f29;
+  border: none;
+  color: #ffffff;
+}
+.poject-page .comments .adauga:hover {
+  background: #ffffff;
+  color: #f54f29;
+  border: 1px solid #f54f29;
+}
+@media (max-width: 1024px) {
+  .poject-page .comments .adauga:hover {
+    background: #ffffff;
+    color: #f54f29;
+    border: 1px solid #f54f29;
+  }
+}
 .poject-page .comments .comm-title {
   font-family: roboto-bold;
   font-size: 1.6em;
